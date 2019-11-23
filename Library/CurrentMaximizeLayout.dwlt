@@ -23,10 +23,10 @@ MonoBehaviour:
     y: 30
     width: 1366
     height: 635
-  m_MinSize: {x: 917, y: 422}
-  m_MaxSize: {x: 22012, y: 10022}
+  m_MinSize: {x: 913, y: 444}
+  m_MaxSize: {x: 22008, y: 10022}
   vertical: 0
-  controlID: 2321
+  controlID: 7823
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -129,10 +129,10 @@ MonoBehaviour:
     y: 0
     width: 651
     height: 635
-  m_MinSize: {x: 202, y: 422}
-  m_MaxSize: {x: 4002, y: 8022}
+  m_MinSize: {x: 202, y: 444}
+  m_MaxSize: {x: 4002, y: 8044}
   vertical: 1
-  controlID: 2322
+  controlID: 7803
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -195,9 +195,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -14.954565, y: 3.453128, z: -19.395626}
+    m_Target: {x: 1.5025027, y: 0.8266796, z: -1.43299}
     speed: 2
-    m_Value: {x: -14.954565, y: 3.453128, z: -19.395626}
+    m_Value: {x: 1.5025027, y: 0.8266796, z: -1.43299}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -226,20 +226,20 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.09650892, y: -0.657914, z: 0.0855264, w: -0.7419974}
+    m_Target: {x: 0.04478879, y: 0.1495881, z: -0.0067556873, w: 0.9877364}
     speed: 2
-    m_Value: {x: -0.09650701, y: -0.657901, z: 0.08552471, w: -0.74198276}
+    m_Value: {x: 0.044787634, y: 0.14958425, z: -0.006755513, w: 0.98771095}
   m_Size:
-    m_Target: 1.8116465
+    m_Target: 6.911648
     speed: 2
-    m_Value: 1.8116465
+    m_Value: 6.911648
   m_Ortho:
     m_Target: 0
     speed: 2
     m_Value: 0
   m_CameraSettings:
-    m_Speed: 1
-    m_SpeedNormalized: 0.5
+    m_Speed: 1.1
+    m_SpeedNormalized: 0.56749994
     m_SpeedMin: 0.01
     m_SpeedMax: 2
     m_EasingEnabled: 1
@@ -341,7 +341,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: faeaffffb6f6fffff8f7ffffba400000
+      m_ExpandedIDs: 9272ffffba83ffff80f9ffff92350000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -384,8 +384,8 @@ MonoBehaviour:
     y: 0
     width: 234
     height: 635
-  m_MinSize: {x: 230, y: 250}
-  m_MaxSize: {x: 10000, y: 10000}
+  m_MinSize: {x: 234, y: 272}
+  m_MaxSize: {x: 10004, y: 10022}
   m_ActualView: {fileID: 10}
   m_Panes:
   - {fileID: 10}
@@ -429,8 +429,7 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SkipHidden: 0
     m_SearchArea: 1
-    m_Folders:
-    - Assets/AssetsImportados/Skybox/Materials
+    m_Folders: []
   m_ViewMode: 0
   m_StartGridSize: 64
   m_LastFolders: []
@@ -442,7 +441,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 082d0000
     m_LastClickedID: 11528
-    m_ExpandedIDs: ffffffff00000000f63b000048480000
+    m_ExpandedIDs: ffffffff000000002a300000ae300000623200006a3b0000763b0000ae3b0000263c0000a63c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -470,7 +469,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff00000000f63b00005e45000060450000
+    m_ExpandedIDs: ffffffff000000002a300000ae3000001c340000763b0000a63c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
