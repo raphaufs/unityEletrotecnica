@@ -38,7 +38,11 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
+<<<<<<< HEAD
   m_IndirectSpecularColor: {r: 0.44634402, g: 0.4910164, b: 0.54706764, a: 1}
+=======
+  m_IndirectSpecularColor: {r: 0.44634366, g: 0.4910161, b: 0.5470677, a: 1}
+>>>>>>> origin/development
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -120,6 +124,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+<<<<<<< HEAD
 --- !u!1 &6697847
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,6 +236,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3faeb4336fc9342b09e1e25f4c3c8b55, type: 3}
+=======
+>>>>>>> origin/development
 --- !u!4 &287821766 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6216515907988654218, guid: 8e78fec2c85e653409c09a6c8fc576f4,
@@ -330,12 +337,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!4 &648615877 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1822642702844704043, guid: 3faeb4336fc9342b09e1e25f4c3c8b55,
     type: 3}
   m_PrefabInstance: {fileID: 1455301072}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> origin/development
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -427,6 +437,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 15.878001, y: -250.24799, z: -202.467}
+<<<<<<< HEAD
 --- !u!1001 &780466360
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -677,6 +688,8 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1569564307}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> origin/development
 --- !u!1001 &1891226813
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -777,6 +790,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!1001 &2128786480
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -926,3 +940,5 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3faeb4336fc9342b09e1e25f4c3c8b55, type: 3}
+=======
+>>>>>>> origin/development

@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 ﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":true,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":false,"pivot":{"x":4.440308570861816,"y":0.2392578125,"z":-6.354681015014648},"rotation":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"size":1.381737470626831,"orthographic":true}
+=======
+﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":true,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":false,"pivot":{"x":1.502502679824829,"y":0.8266795873641968,"z":-1.4329899549484254},"rotation":{"x":0.04478878900408745,"y":0.14958809316158296,"z":-0.0067556872963905338,"w":0.9877364039421082},"size":6.911647796630859,"orthographic":false}
+>>>>>>> origin/development
