@@ -159,6 +159,7 @@
     <None Include="Assets\AssetsImportados\Standard Assets\Effects\ToonShading\Shaders\ToonLit.shader" />
     <None Include="Assets\AssetsImportados\Standard Assets\Effects\Projectors\Shaders\ProjectorLight.shader" />
     <None Include="Assets\AssetsImportados\Standard Assets\Environment\Water\Water\Shaders\FXWaterPro.shader" />
+    <None Include="Assets\AssetsImportados\QS\QS-Textures-Grass-v1\Documentation\Readme.txt" />
     <None Include="Assets\AssetsImportados\Standard Assets\Effects\Projectors\Shaders\ProjectorMultiply.shader" />
     <None Include="Assets\AssetsImportados\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
     <None Include="Assets\AssetsImportados\Standard Assets\Cameras\CameraGuidelines.txt" />
