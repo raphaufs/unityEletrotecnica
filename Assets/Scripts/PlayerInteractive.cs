@@ -40,9 +40,15 @@ public class PlayerInteractive : MonoBehaviour
                     //aqui no caso serve pra da play na animação ... 
                     currentInteractables.OnInteract.Invoke();
 
+                    //se for a chave 1 vai ligar as luzes da casa 
+                    if (currentInteractables.item.id == 1)
+                    {
+                        currentInteractables.LigandoLuz();
+                    }
+
                     //aqui poderia verificar se o item e possivel usar ... acessando currentInteractables.item
-                    
-                        Debug.Log("Item Ativado :" + currentInteractables.name);                    
+
+                    Debug.Log("Item Ativado :" + currentInteractables.name);                    
                     
                 }
             }

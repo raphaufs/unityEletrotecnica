@@ -12,6 +12,17 @@ public class ItemChave : ScriptableObject
     */
     public string nome;
     public int id;
+    private int value; //0 ou 1
+
+    public void setValue(int i)
+    {
+        this.value = i;
+    }
+    public int getValue()
+    {
+        return this.value;
+    }
+
     // audio clip 
     
 
