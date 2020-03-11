@@ -140,6 +140,8 @@
     <Compile Include="Assets\AssetsImportados\Standard Assets\Utility\TimedObjectDestructor.cs" />
     <Compile Include="Assets\AssetsImportados\Standard Assets\Utility\WaypointCircuit.cs" />
     <Compile Include="Assets\AssetsImportados\Standard Assets\Utility\WaypointProgressTracker.cs" />
+    <Compile Include="Assets\Linha.cs" />
+    <Compile Include="Assets\Scripts\controlLogicBtn.cs" />
     <Compile Include="Assets\Scripts\Interactables.cs" />
     <Compile Include="Assets\Scripts\ItemChave.cs" />
     <Compile Include="Assets\Scripts\PlayerInteractive.cs" />
