@@ -7,9 +7,6 @@ public class Interactables : MonoBehaviour
     public ItemChave item;
     public UnityEvent OnInteract;
 
-
-    
-
     void Start()
     {
         

@@ -8,14 +8,18 @@ public class ChaveLogica : MonoBehaviour
     // Start is called before the first frame update
     private bool status;
     private string nome;
+    private char id;
+    private char type;
     private GameObject objAtual;
-    
+
     void Start()
     {
         this.nome = this.gameObject.name;
-        status = false;
-        objAtual = this.gameObject;
-    
+        this.id = nome[nome.Length];
+        this.type = nome[nome.Length - 1];
+        this.status = false;
+        this.objAtual = this.gameObject;
+
     }
     public bool getStatus()
     {
@@ -25,21 +29,17 @@ public class ChaveLogica : MonoBehaviour
     public void alteraStatus()
     {
         status = !status;
-        print(nome+"---"+status);
-        
+        print(nome + "---" + status);
+
     }
-    
+
     public void verifyBeforeActive()
     {
         bool statusResult = false;
 
-        GameObject c1 = GameObject.Find("Chave C1");
-        GameObject c2 = GameObject.Find("Chave C2");
-        GameObject c3 = GameObject.Find("Chave C3");
-        GameObject c4 = GameObject.Find("Chave C4");
-        GameObject c5 = GameObject.Find("Chave C5");
-        GameObject c6 = GameObject.Find("Chave C6");
-        
+        //GameObject s6 = GameObject.Find("Chave S6");
+
+
         /*
         da pra pegar todos os disjuntor e verificar se todos estão off
 
@@ -48,10 +48,21 @@ public class ChaveLogica : MonoBehaviour
         GameObject i3 = GameObject.Find("Disjuntor I3");
         GameObject i4 = GameObject.Find("Disjuntor I4");
         */
-        
-        //da para por um if para verificar o nome do disjuntor atual e dai fazer as devidas operações
 
-        if(c1.GetComponentInChildren<ChaveLogica>().getStatus() && c1.GetComponentInChildren<ChaveLogica>().getStatus())
+        //da para por um if para verificar o nome do disjuntor atual e dai fazer as devidas operações
+        print("Nome:" + this.nome + "\n STATUS:"+this.status);
+        if (type == 'I')
+        {
+            GameObject s = GameObject.Find("Chave S" + this.id);
+            if (s.GetComponentInChildren<ChaveLogica>().getStatus())
+            {
+                objAtual.GetComponentInChildren<Image>().color = Color.green;
+                alteraStatus();
+            }
+        }
+
+        /*
+        if(c1.GetComponentInChildren<ChaveLogica>().getStatus() && c2.GetComponentInChildren<ChaveLogica>().getStatus())
         {
             objAtual.GetComponentInChildren<Image>().color = Color.green;
             alteraStatus();
@@ -60,5 +71,6 @@ public class ChaveLogica : MonoBehaviour
         {
             objAtual.GetComponentInChildren<Image>().color = Color.red;
         }
+        */
     }
 }
