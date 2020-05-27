@@ -72,10 +72,7 @@ public class ChaveLogica : MonoBehaviour
             GameObject i = GameObject.Find("Disjuntor I" + this.id);
             if (i.GetComponentInChildren<ChaveLogica>().getStatus())
             {
-                int statusLine = vefifyLine(this.canvas);
-                print("Status line: "+ statusLine);
                 alteraStatus();
-                
             }
             else
             {
@@ -83,48 +80,4 @@ public class ChaveLogica : MonoBehaviour
             }
         }
     }
-    //condiciton clear first stage
-    public int vefifyLine(GameObject canvasGameObject){
-        //precisa refartorar esse codigo é apenas uma "versao Beta"
-        // allOff //-1
-        // allOn  // 1
-        // half   // 0
-        GameObject[] lineComponents;
-        lineComponents = new GameObject[4];
     
-        lineComponents[0] = GameObject.Find("Disjuntor I" + 1);
-        lineComponents[1] = GameObject.Find("Chave S" + 1);
-        lineComponents[2] = GameObject.Find("Chave S" + 2);
-        lineComponents[3] = GameObject.Find("Disjuntor I" + 2);
-
-        int i,auxOff=0,auxON=0;
-        for(i=0; i<4;i++){
-         if(lineComponents[i].GetComponentInChildren<ChaveLogica>().getStatus()){
-            auxON++;
-	     }else{
-            auxOff++;     
-	     }
-	    }
-
-        if(auxOff==3){
-            return -1;
-	    }else if(auxON==3){
-            return 1;
-	    }
-        return 0;
-    }
-
-
-    // add text in canvas
-     public Text AddTextToCanvas(string textString, GameObject canvasGameObject)
-     {
-         Text text = canvasGameObject.AddComponent<Text>();
-         text.text = textString;
- 
-         Font ArialFont = (Font)Resources.GetBuiltinResource(typeof(Font), "Arial.ttf");
-         text.font = ArialFont;
-         text.material = ArialFont.material;
- 
-         return text;
-     }
-    }
