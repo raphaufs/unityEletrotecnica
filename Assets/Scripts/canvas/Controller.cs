@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Controller : MonoBehaviour
 {
@@ -33,49 +34,69 @@ public class Controller : MonoBehaviour
     {
         string nome = botao.getNome();
         bool result = false;
-        // Precisa refatorar pra um switch
-        if ((nome == "Disjuntor01") && (verificarDisjuntor()))
+        int indexOfElement = elementosManobra.listOfObjects.findIndexByName(nome);
+        if ((nome.contains("Disjuntor")) && (verificarDisjuntor()))
         {
-            elementosManobra.setDisjuntor01(!elementosManobra.getDisjuntor01());
+            elementosManobra.listOfObjects[indexOfElement].setStatus(!elementosManobra.listOfObjects[indexOfElement].getStatus());
             result = true;
         }
-        if ((nome == "Chave01") && (verificarChave()))
+        if ((nome.contains("Chave")) && (verificarChave()))
         {
-            elementosManobra.setChave01(!elementosManobra.getChave01());
-            result = true;
-        }
-        if ((nome == "Chave02") && (verificarChave()))
-        {
-            elementosManobra.setChave02(!elementosManobra.getChave02());
-            result = true;
-        }
-        if ((nome == "Disjuntor02") && (verificarDisjuntor()))
-        {
-            elementosManobra.setDisjuntor02(!elementosManobra.getDisjuntor02());
+            elementosManobra.listOfObjects[indexOfElement].setStatus(!elementosManobra.listOfObjects[indexOfElement].getStatus());
             result = true;
         }
         return result;
     }
 
-    static bool verificarDisjuntor()
-    {
+    static bool verificarDisjuntor(int indexDisjuntor)
+    {   
+        bool disjuntorStatus = elementosManobra.listOfObjects[indexDisjuntor].getStatus();
+
+        string nameKey1 = "Chave"+ elementosManobra.listOfObjects[indexDisjuntor].getKeyCode1() ;
+        int indexChave1 = elementosManobra.listOfObjects.findIndexByName(nameKey1);
+        bool chave1Status = elementosManobra.listOfObjects[indexChave1].getStatus();
+
         bool result = false;
-        if ((!elementosManobra.getDisjuntor01()) || //se disjuntor estiver desligado
-            (elementosManobra.getDisjuntor01() && !elementosManobra.getChave01() && !elementosManobra.getChave02()))
-        {//se as chaves estiverem desligadas e o disjuntor estiver ligado
-            result = true;
-        }
-        else
-        {
-            Debug.Log("Desligue as Chaves!");
-        }
+        
+        // verifica se é disjuntor que so tem uma chave ou disjuntor que tem 2 chaves
+        if(elementosManobra.listOfObjects[indexDisjuntor].getIsDoubleKey()){
+        
+            string nameKey2 = "Chave"+ elementosManobra.listOfObjects[indexDisjuntor].getKeyCode2() ;
+            int indexChave2 = elementosManobra.listOfObjects.findIndexByName(nameKey2);
+            bool chave2Status = elementosManobra.listOfObjects[indexChave2].getStatus();
+
+            if ((!disjuntorStatus) || //se disjuntor estiver desligado
+                (disjuntorStatus && !chave1Status && !chave2Status))
+            {//se as chaves estiverem desligadas e o disjuntor estiver ligado
+                result = true;
+            }
+            else
+            {
+                Debug.Log("Desligue as Chaves!");
+            }
+	    }else{
+          if ((!disjuntorStatus) || //se disjuntor estiver desligado
+                (disjuntorStatus && !chave1Status))
+            {//se a chave estiver desligada e o disjuntor estiver ligado
+                result = true;
+            }
+            else
+            {
+                Debug.Log("Desligue a Chave!");
+            }
+		}
+        
         return result;
     }
 
-    static bool verificarChave()
+    static bool verificarChave(int indexChave)
     {
+        string nameDisjuntor = "Disjuntor"+ elementosManobra.listOfObjects[indexChave].getDisjuntorCode() ;
+        int indexDisjuntor = elementosManobra.listOfObjects.findIndexByName(nameDisjuntor);
+        bool disjuntorStatus = elementosManobra.listOfObjects[indexDisjuntor].getStatus();
+
         bool result = false;
-        if (elementosManobra.getDisjuntor01())
+        if (disjuntorStatus)
         {//se o disjuntor estiver desligado
             result = true;
         }

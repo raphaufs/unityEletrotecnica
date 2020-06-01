@@ -1,21 +1,25 @@
 ﻿
 public class Chave 
 {
+    private string type;
     private bool status;
     private string codigo;
-    private string disjuntorRootCode;
+    private string disjuntorCode;
 
     public Chave(bool status)
     {
+        this.type = "Chave";
         this.status = status;
     }
     public Chave(bool status,string codigo)
     {
+        this.type = "Chave";
         this.status = status;
         this.codigo = codigo;
     }
     public Chave(bool status, string codigo, string disjuntorCod)
     {
+        this.type = "Chave";
         this.status = status;
         this.codigo = codigo;
         this.disjuntorRootCode = disjuntorCod;
@@ -30,9 +34,12 @@ public class Chave
         this.codigo = code;
     }
     public string getCodigo () => this.codigo;
-    public void setDisjuntorRootCode(string code)
+    public void setDisjuntorCode(string code)
     {
-        this.disjuntorRootCode = code;
+        this.disjuntorCode = code;
     }
-    public string getDisjuntorRootCode () => this.disjuntorRootCode;
+    public string getDisjuntorCode () => this.disjuntorCode;
+    public string toString(){
+        return this.type+this.codigo;
+	}
 }

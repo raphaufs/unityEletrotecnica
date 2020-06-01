@@ -1,6 +1,11 @@
-﻿public class estage1
+﻿using System.Collections;
+using System.Collections.Generic;
+public class estage1 : IfindInterface
 {
-    // aplicar as classes chave e disjuntor 
+    
+    public List<Object> listOfObjects; // lista com todos os componentes do estage
+
+         
     public Chave chave01;
     public Disjuntor disjuntor01;
     public Disjuntor disjuntor02;
@@ -29,6 +34,29 @@
         this.disjuntor02 = new Disjuntor(false, "2", "2");
         this.disjuntor03 = new Disjuntor(false, "3", "3", "4");
         this.disjuntor04 = new Disjuntor(false, "3", "5", "6");
+
+        this.listOfObjects = createListObjectsOfEstage();
     }
+    public List<Object> createListObjectsOfEstage(){
+        List<Object> obList = new List<Object>();
+        obList.add(this.chave01);
+        obList.add(this.chave02);
+        obList.add(this.chave03);
+        obList.add(this.chave04);
+        obList.add(this.chave05);
+        obList.add(this.chave06);
+        obList.add(this.disjuntor01);
+        obList.add(this.disjuntor02);
+        obList.add(this.disjuntor03);
+        obList.add(this.disjuntor04);
+
+        return obList;    
+	}
+    public Object findName(string name){
+        return this.listOfObjects.Find(x => x.toString().Contains(name));
+	}
+    public int findIndexByName(string name){
+        return this.listOfObjects.FindIndex(x => x.toString().equals(name)); //if dont find return -1
+	}
 }
    

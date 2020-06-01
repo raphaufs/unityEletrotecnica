@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class Disjuntor 
 {
+    private string type;
     private bool status;
     private string codigo;
     private bool isDoubleKey;
@@ -12,6 +12,7 @@ public class Disjuntor
 
     public Disjuntor(bool status, string codigo, string keyCode1)
     {
+        this.type = "Disjuntor";
         this.status = status;
         this.codigo = codigo;
         this.isDoubleKey = false;
@@ -19,6 +20,7 @@ public class Disjuntor
     }
     public Disjuntor(bool status, string codigo, string keyCode1,string keyCode2)
     {
+        this.type = "Disjuntor";
         this.status = status;
         this.codigo = codigo;
         this.isDoubleKey = true;
@@ -50,4 +52,6 @@ public class Disjuntor
         this.keyCode2 = code;
     }
     public string getKeycode2() => this.keyCode2;
+
+
 }
