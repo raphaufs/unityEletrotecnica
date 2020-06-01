@@ -3,8 +3,9 @@ using System.Collections.Generic;
 
 interface IfindInterface 
 {
-    public List<Object> listOfObjects;
-    public Object findName(string name);
-    public List<Object> createListObjectsOfEstage(); 
-    public int findIndexByName(string name);
+    
+    Chave findChaveName(string name);
+    int findChaveIndexByName(string name);
+    Disjuntor findDisjuntorName(string name);
+    int findDisjuntorIndexByName(string name);
 }

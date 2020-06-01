@@ -22,7 +22,7 @@ public class Chave
         this.type = "Chave";
         this.status = status;
         this.codigo = codigo;
-        this.disjuntorRootCode = disjuntorCod;
+        this.disjuntorCode = disjuntorCod;
     }
     public void setStatus(bool value)
     {

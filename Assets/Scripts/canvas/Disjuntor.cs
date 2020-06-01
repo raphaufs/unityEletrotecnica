@@ -52,6 +52,9 @@ public class Disjuntor
         this.keyCode2 = code;
     }
     public string getKeycode2() => this.keyCode2;
-
+    public string toString()
+    {
+        return this.type + this.codigo;
+    }
 
 }

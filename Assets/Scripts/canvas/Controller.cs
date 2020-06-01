@@ -34,15 +34,16 @@ public class Controller : MonoBehaviour
     {
         string nome = botao.getNome();
         bool result = false;
-        int indexOfElement = elementosManobra.listOfObjects.findIndexByName(nome);
-        if ((nome.contains("Disjuntor")) && (verificarDisjuntor()))
+        int indexOfElement = nome.Contains("Disjuntor") ? elementosManobra.findDisjuntorIndexByName(nome) : elementosManobra.findChaveIndexByName(nome);
+        if(indexOfElement < 0) { print("Algum erro no codigo~, não ta conseguindo achar o elemento atual, verifique as suas chamadas."); }
+        if ((nome.Contains("Disjuntor")) && (verificarDisjuntor(indexOfElement)))
         {
-            elementosManobra.listOfObjects[indexOfElement].setStatus(!elementosManobra.listOfObjects[indexOfElement].getStatus());
+            elementosManobra.listOfDisjuntores[indexOfElement].setStatus(!elementosManobra.listOfDisjuntores[indexOfElement].getStatus());
             result = true;
         }
-        if ((nome.contains("Chave")) && (verificarChave()))
+        if ((nome.Contains("Chave")) && (verificarChave(indexOfElement)))
         {
-            elementosManobra.listOfObjects[indexOfElement].setStatus(!elementosManobra.listOfObjects[indexOfElement].getStatus());
+            elementosManobra.listOfChaves[indexOfElement].setStatus(!elementosManobra.listOfChaves[indexOfElement].getStatus());
             result = true;
         }
         return result;
@@ -50,20 +51,20 @@ public class Controller : MonoBehaviour
 
     static bool verificarDisjuntor(int indexDisjuntor)
     {   
-        bool disjuntorStatus = elementosManobra.listOfObjects[indexDisjuntor].getStatus();
+        bool disjuntorStatus = elementosManobra.listOfDisjuntores[indexDisjuntor].getStatus();
 
-        string nameKey1 = "Chave"+ elementosManobra.listOfObjects[indexDisjuntor].getKeyCode1() ;
-        int indexChave1 = elementosManobra.listOfObjects.findIndexByName(nameKey1);
-        bool chave1Status = elementosManobra.listOfObjects[indexChave1].getStatus();
+        string nameKey1 = "Chave"+ elementosManobra.listOfDisjuntores[indexDisjuntor].getKeycode1() ;
+        int indexChave1 = elementosManobra.findChaveIndexByName(nameKey1);
+        bool chave1Status = elementosManobra.listOfChaves[indexChave1].getStatus();
 
         bool result = false;
         
         // verifica se é disjuntor que so tem uma chave ou disjuntor que tem 2 chaves
-        if(elementosManobra.listOfObjects[indexDisjuntor].getIsDoubleKey()){
+        if(elementosManobra.listOfDisjuntores[indexDisjuntor].getIsDoubleKey()){
         
-            string nameKey2 = "Chave"+ elementosManobra.listOfObjects[indexDisjuntor].getKeyCode2() ;
-            int indexChave2 = elementosManobra.listOfObjects.findIndexByName(nameKey2);
-            bool chave2Status = elementosManobra.listOfObjects[indexChave2].getStatus();
+            string nameKey2 = "Chave"+ elementosManobra.listOfDisjuntores[indexDisjuntor].getKeycode2() ;
+            int indexChave2 = elementosManobra.findChaveIndexByName(nameKey2);
+            bool chave2Status = elementosManobra.listOfChaves[indexChave2].getStatus();
 
             if ((!disjuntorStatus) || //se disjuntor estiver desligado
                 (disjuntorStatus && !chave1Status && !chave2Status))
@@ -91,9 +92,9 @@ public class Controller : MonoBehaviour
 
     static bool verificarChave(int indexChave)
     {
-        string nameDisjuntor = "Disjuntor"+ elementosManobra.listOfObjects[indexChave].getDisjuntorCode() ;
-        int indexDisjuntor = elementosManobra.listOfObjects.findIndexByName(nameDisjuntor);
-        bool disjuntorStatus = elementosManobra.listOfObjects[indexDisjuntor].getStatus();
+        string nameDisjuntor = "Disjuntor"+ elementosManobra.listOfChaves[indexChave].getDisjuntorCode() ;
+        int indexDisjuntor = elementosManobra.findDisjuntorIndexByName(nameDisjuntor);
+        bool disjuntorStatus = elementosManobra.listOfDisjuntores[indexDisjuntor].getStatus();
 
         bool result = false;
         if (disjuntorStatus)
