@@ -27,7 +27,7 @@ public class View : MonoBehaviour
     public void onClick()
     {
 
-        if (Controller.mudarStatus(this))
+        if (Estage1Controller.mudarStatus(this))
         {
             if (objAtual.GetComponentInChildren<Image>().color == Color.green)
                 objAtual.GetComponentInChildren<Image>().color = Color.red;
