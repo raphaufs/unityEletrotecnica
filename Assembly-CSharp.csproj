@@ -149,6 +149,7 @@
     <Compile Include="Assets\Scripts\Interfaces\IfindInterface.cs" />
     <Compile Include="Assets\Scripts\ItemChave.cs" />
     <Compile Include="Assets\Scripts\PlayerInteractive.cs" />
+    <Compile Include="Assets\Scripts\SwitchScenes.cs" />
     <Compile Include="Assets\Scripts\UIHudControl.cs" />
     <None Include="Assets\AssetsImportados\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
     <None Include="Assets\AssetsImportados\Standard Assets\Effects\ToonShading\Shaders\ToonBasic.shader" />
