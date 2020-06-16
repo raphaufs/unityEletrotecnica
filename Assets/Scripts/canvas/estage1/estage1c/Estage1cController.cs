@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Estage1Controller : MonoBehaviour
+public class Estage1cController : MonoBehaviour
 {
     private static estage1Model elementosManobra;
     private GameObject transformador;
@@ -47,7 +47,7 @@ public class Estage1Controller : MonoBehaviour
     }
 
 
-    public static bool mudarStatus(View botao)
+    public static bool mudarStatus(Estage1cView botao)
     {
         string nome = botao.getNome();
         bool result = false;
