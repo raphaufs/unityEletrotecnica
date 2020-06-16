@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Estage1Controller : MonoBehaviour
 {
     private static estage1Model elementosManobra;
+    private GameObject transformador;
     private GameObject msgCuidado;
     private GameObject WinText;
     private GameObject msgOk;
@@ -21,6 +22,8 @@ public class Estage1Controller : MonoBehaviour
         elementosManobra = new estage1Model();
         this.msgCuidado = GameObject.Find("msgCuidado");
         this.msgCuidado.SetActive(true);
+        this.transformador = GameObject.Find("transformador");
+        this.transformador.SetActive(true);
         this.msgOk = GameObject.Find("msgOk");
         this.msgOk.SetActive(false);
         this.WinText = GameObject.Find("WinText");
@@ -132,6 +135,7 @@ public class Estage1Controller : MonoBehaviour
         if (this.maxOjetivos == 0)
         {
             this.msgCuidado.SetActive(true);
+            this.transformador.GetComponentInChildren<Image>().color = Color.red;
             Debug.Log("VOCE GANHOU!");
             this.WinText.SetActive(true);
 
@@ -153,11 +157,13 @@ public class Estage1Controller : MonoBehaviour
 
                 this.msgOk.SetActive(true);
                 this.msgCuidado.SetActive(false);
+                this.transformador.GetComponentInChildren<Image>().color = Color.green;
             }
             else
             {
                 this.msgOk.SetActive(false);
                 this.msgCuidado.SetActive(true);
+                this.transformador.GetComponentInChildren<Image>().color = Color.red;
             }
         }
 
