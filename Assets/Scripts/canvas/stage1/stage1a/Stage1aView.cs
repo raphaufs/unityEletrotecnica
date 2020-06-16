@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class Estage1cView : MonoBehaviour
+public class Stage1aView : MonoBehaviour
 {
     private string nome;
     private char id;
@@ -27,7 +27,7 @@ public class Estage1cView : MonoBehaviour
     public void onClick()
     {
 
-        if (Estage1cController.mudarStatus(this))
+        if (Stage1aController.mudarStatus(this))
         {
             if (objAtual.GetComponentInChildren<Image>().color == Color.green)
                 objAtual.GetComponentInChildren<Image>().color = Color.red;
