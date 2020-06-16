@@ -702,6 +702,10 @@
       <Project>{D88DE4B1-C28F-2C9F-E782-2384FFE6ED92}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
+    <ProjectReference Include="IndexReferences.csproj">
+      <Project>{AAD6A039-0437-A91F-2FAA-44A2DC903285}</Project>
+      <Name>IndexReferences</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
