@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Estage1cController : MonoBehaviour
+public class Stage1cController : MonoBehaviour
 {
-    private static estage1Model elementosManobra;
+    private static Stage1Model elementosManobra;
     private GameObject transformador;
     private GameObject msgCuidado;
     private GameObject WinText;
@@ -19,7 +19,7 @@ public class Estage1cController : MonoBehaviour
 
     void iniciar()
     {
-        elementosManobra = new estage1Model();
+        elementosManobra = new Stage1Model();
         this.msgCuidado = GameObject.Find("msgCuidado");
         this.msgCuidado.SetActive(true);
         this.transformador = GameObject.Find("transformador");
@@ -47,7 +47,7 @@ public class Estage1cController : MonoBehaviour
     }
 
 
-    public static bool mudarStatus(Estage1cView botao)
+    public static bool mudarStatus(Stage1cView botao)
     {
         string nome = botao.getNome();
         bool result = false;

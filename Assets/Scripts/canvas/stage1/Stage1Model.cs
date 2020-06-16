@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-public class estage1Model : IfindInterface
+public class Stage1Model : IfindInterface
 {
     
     public List<Chave> listOfChaves; 
@@ -23,7 +23,7 @@ public class estage1Model : IfindInterface
     public Disjuntor disjuntor04;
     public Chave chave06;
 
-    public estage1Model()
+    public Stage1Model()
     {
         this.chave01 = new Chave(false, "1", "1");
         this.chave02 = new Chave(false, "2", "2");

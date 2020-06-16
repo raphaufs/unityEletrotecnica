@@ -65,11 +65,11 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\canvas\Chave.cs" />
     <Compile Include="Assets\Scripts\canvas\Disjuntor.cs" />
-    <Compile Include="Assets\Scripts\canvas\estage1\Estage1a\Estage1aController.cs" />
-    <Compile Include="Assets\Scripts\canvas\estage1\Estage1a\Estage1aView.cs" />
-    <Compile Include="Assets\Scripts\canvas\estage1\estage1c\Estage1cController.cs" />
-    <Compile Include="Assets\Scripts\canvas\estage1\estage1c\Estage1cView.cs" />
-    <Compile Include="Assets\Scripts\canvas\estage1\estage1Model.cs" />
+    <Compile Include="Assets\Scripts\canvas\stage1\stage1a\Stage1aController.cs" />
+    <Compile Include="Assets\Scripts\canvas\stage1\stage1a\Stage1aView.cs" />
+    <Compile Include="Assets\Scripts\canvas\stage1\stage1c\Stage1cController.cs" />
+    <Compile Include="Assets\Scripts\canvas\stage1\stage1c\Stage1cView.cs" />
+    <Compile Include="Assets\Scripts\canvas\stage1\Stage1Model.cs" />
     <Compile Include="Assets\Scripts\Interactables.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IfindInterface.cs" />
     <Compile Include="Assets\Scripts\ItemChave.cs" />
@@ -284,6 +284,9 @@
     <Reference Include="UnityEditor.iOS.Extensions">
       <HintPath>C:/Users/Idylicaro/Desktop/UnityVersions/2019.2.11f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
+      <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor.Advertisements">
       <HintPath>C:/Users/Idylicaro/Documents/Github/unityEletrotecnica/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
     </Reference>
@@ -298,9 +301,6 @@
     </Reference>
     <Reference Include="UnityEditor.Purchasing">
       <HintPath>C:/Users/Idylicaro/Documents/Github/unityEletrotecnica/Library/PackageCache/com.unity.purchasing@2.0.6/Editor/UnityEditor.Purchasing.dll</HintPath>
-    </Reference>
-    <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
-      <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>C:/Users/Idylicaro/Desktop/UnityVersions/2019.2.11f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
