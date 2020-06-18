@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -31,19 +32,30 @@ public class Stage1aController : MonoBehaviour
         this.maxOjetivos = 2;
     }
 
-    private bool manobraDesenergizar()
+    private bool manobraDesenergizar(Chave[] chaves, Disjuntor[] disjuntores )
     {
-        return (elementosManobra.disjuntor01.getStatus()
-            && elementosManobra.chave01.getStatus()
-            && elementosManobra.chave02.getStatus()
-            && elementosManobra.disjuntor02.getStatus());
+        bool result = true;
+        foreach(Chave c in chaves){
+            result = (c.getStatus()) ? true : false ;  
+        }
+        foreach (Disjuntor d in disjuntores)
+        {
+            result = (d.getStatus()) ? true : false;
+        }
+        return result;
     }
-    private bool manobraEnergizar()
+    private bool manobraEnergizar(Chave[] chaves, Disjuntor[] disjuntores)
     {
-        return (!elementosManobra.disjuntor01.getStatus()
-            && !elementosManobra.chave01.getStatus()
-            && !elementosManobra.chave02.getStatus()
-            && !elementosManobra.disjuntor02.getStatus());
+        bool result = true;
+        foreach (Chave c in chaves)
+        {
+            result = (!c.getStatus()) ? true : false;
+        }
+        foreach (Disjuntor d in disjuntores)
+        {
+            result = (!d.getStatus()) ? true : false;
+        }
+        return result;
     }
 
 
@@ -128,6 +140,15 @@ public class Stage1aController : MonoBehaviour
         return result;
     }
 
+    Chave[] returnChavesObjective()
+    {
+        return new Chave[] { elementosManobra.chave05, elementosManobra.chave06 };
+    }
+    Disjuntor[] returnDisjuntoresObjective()
+    {
+        return new Disjuntor[] { elementosManobra.disjuntor04 };
+    }
+
     void Update()
     {
 
@@ -135,7 +156,6 @@ public class Stage1aController : MonoBehaviour
         if (this.maxOjetivos == 0)
         {
             this.msgCuidado.SetActive(true);
-            this.transformador.GetComponentInChildren<Image>().color = Color.red;
             Debug.Log("VOCE GANHOU!");
             this.WinText.SetActive(true);
 
@@ -143,11 +163,11 @@ public class Stage1aController : MonoBehaviour
         }
         else
         {
-            if (this.maxOjetivos == 1 && manobraEnergizar())
+            if (this.maxOjetivos == 1 && manobraEnergizar(returnChavesObjective(), returnDisjuntoresObjective()) )
             {
                 this.maxOjetivos--;
             }
-            if (manobraDesenergizar())
+            if (manobraDesenergizar(returnChavesObjective(), returnDisjuntoresObjective()))
             {
 
                 if (this.maxOjetivos == 2)
@@ -157,13 +177,11 @@ public class Stage1aController : MonoBehaviour
 
                 this.msgOk.SetActive(true);
                 this.msgCuidado.SetActive(false);
-                this.transformador.GetComponentInChildren<Image>().color = Color.green;
             }
             else
             {
                 this.msgOk.SetActive(false);
                 this.msgCuidado.SetActive(true);
-                this.transformador.GetComponentInChildren<Image>().color = Color.red;
             }
         }
 
