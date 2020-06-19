@@ -67,6 +67,8 @@
     <Compile Include="Assets\Scripts\canvas\Disjuntor.cs" />
     <Compile Include="Assets\Scripts\canvas\stage1\stage1a\Stage1aController.cs" />
     <Compile Include="Assets\Scripts\canvas\stage1\stage1a\Stage1aView.cs" />
+    <Compile Include="Assets\Scripts\canvas\stage1\stage1b\Stage1bController.cs" />
+    <Compile Include="Assets\Scripts\canvas\stage1\stage1b\Stage1bView.cs" />
     <Compile Include="Assets\Scripts\canvas\stage1\stage1c\Stage1cController.cs" />
     <Compile Include="Assets\Scripts\canvas\stage1\stage1c\Stage1cView.cs" />
     <Compile Include="Assets\Scripts\canvas\stage1\Stage1Model.cs" />
