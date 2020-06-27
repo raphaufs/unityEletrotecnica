@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 public class Stage1aController : MonoBehaviour
@@ -13,6 +15,24 @@ public class Stage1aController : MonoBehaviour
     private GameObject msgOk;
     private int maxOjetivos; //2 state nessa fase , por enquanto so pensei nisso para simular o estado do objetivo , tipo como se fosse etapas 1/3 concluido ...
                              // soq aqui no caso e pensei em fazer o inverso , eu inicializo um valor , e vou reduzindo ate chegar em zero , quando chega em zero é pq todos objetivos foram concluido
+    
+    private static int scoreGame = 1000;
+    
+    public void setTextScore()
+    {
+        GameObject objScoreText = GameObject.Find("ScoreGame");
+        TextMeshProUGUI scoreText = objScoreText.GetComponent<TextMeshProUGUI>();
+        scoreText.SetText("Pontuação:" + scoreGame);
+        if(scoreGame <= 500)
+        {
+            scoreText.color = new Color32(255, 0, 0, 255);
+        }
+}
+    public static void decrementScore(int value)
+    {
+        scoreGame -= value;
+    }
+
     void Start()
     {
         iniciar();
@@ -103,6 +123,7 @@ public class Stage1aController : MonoBehaviour
             }
             else
             {
+                Stage1aController.decrementScore(50);
                 Debug.Log("Desligue as Chaves!");
             }
         }
@@ -115,6 +136,7 @@ public class Stage1aController : MonoBehaviour
             }
             else
             {
+                Stage1aController.decrementScore(50);
                 Debug.Log("Desligue a Chave!");
             }
         }
@@ -135,6 +157,7 @@ public class Stage1aController : MonoBehaviour
         }
         else
         {
+            Stage1aController.decrementScore(50);
             Debug.Log("Desligue o Disjutor!");
         }
         return result;
@@ -150,8 +173,8 @@ public class Stage1aController : MonoBehaviour
     }
 
     void Update()
-    {
-
+    {   
+        setTextScore();
         Debug.Log("Objetivos: " + this.maxOjetivos);
         if (this.maxOjetivos == 0)
         {
