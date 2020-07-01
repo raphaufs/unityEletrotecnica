@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerInteractive : MonoBehaviour
 {
@@ -40,10 +41,9 @@ public class PlayerInteractive : MonoBehaviour
                     //aqui no caso serve pra da play na animação ... 
                     currentInteractables.OnInteract.Invoke();
 
-                    //se for a chave 1 vai ligar as luzes da casa 
                     if (currentInteractables.item.id == 1)
                     {
-                        currentInteractables.LigandoLuz();
+                            SceneManager.LoadScene("SwitchScenes");
                     }
 
                     //aqui poderia verificar se o item e possivel usar ... acessando currentInteractables.item

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8780ed10d30dc734aa06bee8a58ce3ec, type: 3}
-  m_Name: Chave_Luz_Casa
+  m_Name: macbook
   m_EditorClassIdentifier: 
-  nome: luzKeyHouse
+  nome: macbook
   id: 1
