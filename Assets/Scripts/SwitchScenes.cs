@@ -25,4 +25,8 @@ public class SwitchScenes : MonoBehaviour
         SceneManager.LoadScene("cena1");
         // SceneManager.LoadScene("cena1");
     }
+    public void backForSwitchScene()
+    {
+        SceneManager.LoadScene("SwitchScenes");
+    }
 }
