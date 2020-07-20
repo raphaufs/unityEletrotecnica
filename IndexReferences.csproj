@@ -65,8 +65,6 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\canvas\Chave.cs" />
     <Compile Include="Assets\Scripts\canvas\Disjuntor.cs" />
-    <Compile Include="Assets\Scripts\canvas\estage1\Estage1Controller.cs" />
-    <Compile Include="Assets\Scripts\canvas\estage1\estage1Model.cs" />
     <Compile Include="Assets\Scripts\canvas\stage1\stage1a\Stage1aController.cs" />
     <Compile Include="Assets\Scripts\canvas\stage1\stage1a\Stage1aView.cs" />
     <Compile Include="Assets\Scripts\canvas\stage1\stage1b\Stage1bController.cs" />
@@ -76,7 +74,6 @@
     <Compile Include="Assets\Scripts\canvas\stage1\stage1d\Stage1dController.cs" />
     <Compile Include="Assets\Scripts\canvas\stage1\stage1d\Stage1dView.cs" />
     <Compile Include="Assets\Scripts\canvas\stage1\Stage1Model.cs" />
-    <Compile Include="Assets\Scripts\canvas\View.cs" />
     <Compile Include="Assets\Scripts\Cutscene.cs" />
     <Compile Include="Assets\Scripts\InitializeMouse.cs" />
     <Compile Include="Assets\Scripts\Interactables.cs" />
