@@ -198,10 +198,10 @@ public class Stage1aController : MonoBehaviour
             {
 
                 if (this.maxOjetivos == 2)
-                {
+                {   
+                    // primeira etapa concluida
                     --this.maxOjetivos;
                     this.txtStep.SetActive(true);
-                    print("1 a stage terminado");
                 }
 
                 this.msgOk.SetActive(true);
