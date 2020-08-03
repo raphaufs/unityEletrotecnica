@@ -163,7 +163,7 @@ public class Stage1cController : MonoBehaviour
             Debug.Log("VOCE GANHOU!");
             this.WinText.SetActive(true);
             this.txtStep.SetActive(false);
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
             SceneManager.LoadScene("Stage1c");
         }
         else

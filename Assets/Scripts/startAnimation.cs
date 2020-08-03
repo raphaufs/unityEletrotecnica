@@ -5,10 +5,11 @@ using UnityEngine;
 public class startAnimation : MonoBehaviour
 {
     public Animator animator;
+    public string state;
     void Start()
     {
-        this.animator = this.GetComponent<Animator>();
-        this.animator.Play("cutscene_Stage1c", 0);
+        //this.animator = GetComponent<Animator>();
+        animator.Play(state, 0);
     }
 
 }
