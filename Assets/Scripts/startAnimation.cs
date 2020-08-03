@@ -8,7 +8,6 @@ public class startAnimation : MonoBehaviour
     public string state;
     void Start()
     {
-        //this.animator = GetComponent<Animator>();
         animator.Play(state, 0);
     }
 
