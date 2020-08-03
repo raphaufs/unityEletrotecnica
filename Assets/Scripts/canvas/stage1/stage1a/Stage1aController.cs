@@ -3,8 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Stage1aController : MonoBehaviour
 {
@@ -185,7 +184,7 @@ public class Stage1aController : MonoBehaviour
             Debug.Log("VOCE GANHOU!");
             this.WinText.SetActive(true);
             this.txtStep.SetActive(false);
-
+            SceneManager.LoadScene("Stage1a");
 
         }
         else
