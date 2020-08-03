@@ -17,7 +17,7 @@ public class Stage1aController : MonoBehaviour
                              // soq aqui no caso e pensei em fazer o inverso , eu inicializo um valor , e vou reduzindo ate chegar em zero , quando chega em zero é pq todos objetivos foram concluido
     
     private static int scoreGame = 1000;
-    
+    private float EndGameCooldown = 3.0f;
     public void setTextScore()
     {
         GameObject objScoreText = GameObject.Find("ScoreGame");
@@ -184,7 +184,13 @@ public class Stage1aController : MonoBehaviour
             Debug.Log("VOCE GANHOU!");
             this.WinText.SetActive(true);
             this.txtStep.SetActive(false);
-            SceneManager.LoadScene("Stage1a");
+
+            EndGameCooldown -= Time.deltaTime;
+
+            if (EndGameCooldown < 0)
+            {
+                SceneManager.LoadScene("Stage1a");
+            }
 
         }
         else
