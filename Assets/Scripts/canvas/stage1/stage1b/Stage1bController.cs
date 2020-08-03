@@ -13,7 +13,7 @@ public class Stage1bController : MonoBehaviour
     private int maxOjetivos; //2 state nessa fase , por enquanto so pensei nisso para simular o estado do objetivo , tipo como se fosse etapas 1/3 concluido ...
                              // soq aqui no caso e pensei em fazer o inverso , eu inicializo um valor , e vou reduzindo ate chegar em zero , quando chega em zero é pq todos objetivos foram concluido
     private static int scoreGame = 1000;
-
+    private float EndGameCooldown = 3.0f;
     public void setTextScore()
     {
         GameObject objScoreText = GameObject.Find("ScoreGame");
@@ -180,7 +180,13 @@ public class Stage1bController : MonoBehaviour
             Debug.Log("VOCE GANHOU!");
             this.WinText.SetActive(true);
             this.txtStep.SetActive(false);
-            SceneManager.LoadScene("Stage1b");
+
+            EndGameCooldown -= Time.deltaTime;
+
+            if (EndGameCooldown < 0)
+            {
+                SceneManager.LoadScene("Stage1b");
+            }
 
         }
         else
