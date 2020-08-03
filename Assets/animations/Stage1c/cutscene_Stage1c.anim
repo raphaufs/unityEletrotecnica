@@ -754,7 +754,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 19.95
-    functionName: switchScene
+    functionName: backForSwitchScene
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
