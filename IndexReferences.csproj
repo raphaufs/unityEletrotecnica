@@ -80,7 +80,9 @@
     <Compile Include="Assets\Scripts\Interfaces\IfindInterface.cs" />
     <Compile Include="Assets\Scripts\ItemChave.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\onEnd.cs" />
     <Compile Include="Assets\Scripts\PlayerInteractive.cs" />
+    <Compile Include="Assets\Scripts\startAnimation.cs" />
     <Compile Include="Assets\Scripts\SwitchScenes.cs" />
     <Compile Include="Assets\Scripts\UIHudControl.cs" />
     <None Include="Assets\Scripts\IndexReferences.asmdef" />
