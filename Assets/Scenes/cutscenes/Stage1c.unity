@@ -17097,7 +17097,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-27168
+  m_Name: pb_Mesh116308
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -31970,7 +31970,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-27174
+  m_Name: pb_Mesh113292
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -39469,7 +39469,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-27170
+  m_Name: pb_Mesh118078
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -49178,7 +49178,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-27198
+  m_Name: pb_Mesh117950
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -76303,7 +76303,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b46158ede2904674992676295d6d9229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: 1826826562}
+  state: cutscene_Stage1c
 --- !u!1 &1830725791
 GameObject:
   m_ObjectHideFlags: 0
@@ -81856,7 +81857,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-27172
+  m_Name: pb_Mesh117274
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -87072,7 +87073,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh233778
+  m_Name: pb_Mesh119774
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
