@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Stage1bController : MonoBehaviour
 {
@@ -183,7 +180,7 @@ public class Stage1bController : MonoBehaviour
             Debug.Log("VOCE GANHOU!");
             this.WinText.SetActive(true);
             this.txtStep.SetActive(false);
-
+            SceneManager.LoadScene("Stage1b");
 
         }
         else
