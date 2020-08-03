@@ -7,7 +7,8 @@ public class startAnimation : MonoBehaviour
     public Animator animator;
     void Start()
     {
-        animator.Play("Entry");
+        this.animator = this.GetComponent<Animator>();
+        this.animator.Play("cutscene_Stage1c", 0);
     }
 
 }

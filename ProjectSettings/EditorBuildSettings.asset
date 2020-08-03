@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SwitchScenes.unity
     guid: d1d02d207b37fcb4b9bbff039229df72
+  - enabled: 1
+    path: Assets/Scenes/cutscenes/Stage1c.unity
+    guid: ef468d718e26d5e4a973cc90cff890a8
   m_configObjects: {}
