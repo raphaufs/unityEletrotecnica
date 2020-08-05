@@ -154,8 +154,8 @@ public class Stage1cController : MonoBehaviour
 
     void Update()
     {
-        print(EndGameCooldown);
         setTextScore();
+
         Debug.Log("Objetivos: " + this.maxOjetivos);
         if (this.maxOjetivos == 0)
         {

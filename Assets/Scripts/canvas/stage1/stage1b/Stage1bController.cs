@@ -1,5 +1,6 @@
 ﻿using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Stage1bController : MonoBehaviour
@@ -96,6 +97,21 @@ public class Stage1bController : MonoBehaviour
         return result;
     }
 
+    bool verificaTransformadorOff()
+    {
+        return (elementosManobra.disjuntor01.getStatus() &&
+                elementosManobra.disjuntor02.getStatus() &&
+                elementosManobra.chave01.getStatus() &&
+                elementosManobra.chave02.getStatus());
+    }
+    bool verificaTransformadorOn()
+    {
+        return (!elementosManobra.disjuntor01.getStatus() &&
+                !elementosManobra.disjuntor02.getStatus() &&
+                !elementosManobra.chave01.getStatus() &&
+                !elementosManobra.chave02.getStatus());
+    }
+
     static bool verificarDisjuntor(int indexDisjuntor)
     {
         bool disjuntorStatus = elementosManobra.listOfDisjuntores[indexDisjuntor].getStatus();
@@ -173,6 +189,17 @@ public class Stage1bController : MonoBehaviour
     void Update()
     {
         setTextScore();
+
+        if (verificaTransformadorOff())
+        {
+            this.transformador.GetComponentInChildren<Image>().color = Color.green;
+        }
+
+        if (verificaTransformadorOn())
+        {
+            this.transformador.GetComponentInChildren<Image>().color = Color.red;
+        }
+
         Debug.Log("Objetivos: " + this.maxOjetivos);
         if (this.maxOjetivos == 0)
         {
