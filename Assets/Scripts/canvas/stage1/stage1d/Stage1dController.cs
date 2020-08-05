@@ -181,10 +181,6 @@ public class Stage1dController : MonoBehaviour
 
     void Update()
     {
-        print(elementosManobra.disjuntor01.getStatus());
-        print(elementosManobra.disjuntor02.getStatus());
-        print(elementosManobra.disjuntor03.getStatus());
-        print(elementosManobra.disjuntor04.getStatus());
         setTextScore();
         if (verificaTransformadorOff())
         {
