@@ -51,31 +51,33 @@ public class Stage1dController : MonoBehaviour
         this.maxOjetivos = 2;
     }
 
-    private bool manobraDesenergizar(Chave[] chaves, Disjuntor[] disjuntores)
+    private bool manobraDesenergizar()
     {
-        bool result = true;
-        foreach (Chave c in chaves)
-        {
-            result = (c.getStatus()) ? true : false;
-        }
-        foreach (Disjuntor d in disjuntores)
-        {
-            result = (d.getStatus()) ? true : false;
-        }
-        return result;
+        return (
+                elementosManobra.chave01.getStatus() &&
+                elementosManobra.chave02.getStatus() &&
+                elementosManobra.chave03.getStatus() &&
+                elementosManobra.chave04.getStatus() &&
+                elementosManobra.chave05.getStatus() &&
+                elementosManobra.chave06.getStatus() &&
+                elementosManobra.disjuntor01.getStatus() &&
+                elementosManobra.disjuntor03.getStatus() &&
+                elementosManobra.disjuntor04.getStatus()
+            );
     }
-    private bool manobraEnergizar(Chave[] chaves, Disjuntor[] disjuntores)
+    private bool manobraEnergizar()
     {
-        bool result = true;
-        foreach (Chave c in chaves)
-        {
-            result = (!c.getStatus()) ? true : false;
-        }
-        foreach (Disjuntor d in disjuntores)
-        {
-            result = (!d.getStatus()) ? true : false;
-        }
-        return result;
+        return (
+                !elementosManobra.chave01.getStatus() &&
+                !elementosManobra.chave02.getStatus() &&
+                !elementosManobra.chave03.getStatus() &&
+                !elementosManobra.chave04.getStatus() &&
+                !elementosManobra.chave05.getStatus() &&
+                !elementosManobra.chave06.getStatus() &&
+                !elementosManobra.disjuntor01.getStatus() &&
+                !elementosManobra.disjuntor03.getStatus() &&
+                !elementosManobra.disjuntor04.getStatus()
+            );
     }
 
 
@@ -177,19 +179,12 @@ public class Stage1dController : MonoBehaviour
         return result;
     }
 
-    Chave[] returnChavesObjective()
-    {
-        return new Chave[] { elementosManobra.chave01, elementosManobra.chave02, elementosManobra.chave03, 
-                             elementosManobra.chave04, elementosManobra.chave05, elementosManobra.chave06 };
-    }
-    Disjuntor[] returnDisjuntoresObjective()
-    {
-        return new Disjuntor[] { elementosManobra.disjuntor01, elementosManobra.disjuntor02, elementosManobra.disjuntor03,
-                                elementosManobra.disjuntor04};
-    }
-
     void Update()
     {
+        print(elementosManobra.disjuntor01.getStatus());
+        print(elementosManobra.disjuntor02.getStatus());
+        print(elementosManobra.disjuntor03.getStatus());
+        print(elementosManobra.disjuntor04.getStatus());
         setTextScore();
         if (verificaTransformadorOff())
         {
@@ -219,16 +214,16 @@ public class Stage1dController : MonoBehaviour
         }
         else
         {
-            if (this.maxOjetivos == 1 && manobraEnergizar(returnChavesObjective(), returnDisjuntoresObjective()))
+            if (this.maxOjetivos == 1 && manobraEnergizar())
             {
                 this.maxOjetivos--;
                 
             }
 
-            if (this.maxOjetivos == 2 && manobraDesenergizar(returnChavesObjective(), returnDisjuntoresObjective()))
+            if (this.maxOjetivos == 2 && manobraDesenergizar())
             {
                 
-                    --this.maxOjetivos;
+                --this.maxOjetivos;
                 this.txtStep.SetActive(true);
 
                 this.msgOk.SetActive(true);
