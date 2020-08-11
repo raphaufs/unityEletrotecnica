@@ -111,8 +111,19 @@ public class Stage1aController : MonoBehaviour
         }
         if (nome.Contains("Bypass"))
         {
-            elementosManobra.listOfBypass[indexOfElement].setStatus(!elementosManobra.listOfBypass[indexOfElement].getStatus());
             result = true;
+
+            int indexDisjuntor = elementosManobra.findDisjuntorIndexByName("Disjuntor" + elementosManobra.listOfBypass[indexOfElement].getDisjuntorCode());
+            bool statusDisjuntor = elementosManobra.listOfDisjuntores[indexDisjuntor].getStatus();
+            bool statusBypass = elementosManobra.listOfBypass[indexOfElement].getStatus();
+            
+            elementosManobra.listOfBypass[indexOfElement].setStatus(!elementosManobra.listOfBypass[indexOfElement].getStatus());
+            if (!statusBypass && statusDisjuntor)
+            {
+                Debug.Log("Feche o disjuntor e suas chaves");
+                elementosManobra.listOfBypass[indexOfElement].setStatus(false);
+                result = false;
+            }
         }
 
         return result;
@@ -190,10 +201,10 @@ public class Stage1aController : MonoBehaviour
 
         if (hasBypass)
         {
-            if (!bypassStatus && disjuntorStatus)
+            if (bypassStatus && !disjuntorStatus)
             {
                 Stage1aController.decrementScore(50);
-                Debug.Log("Ligue o Bypass !");
+                Debug.Log("Feche o Bypass !");
                 result = false;
             }
         }

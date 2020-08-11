@@ -18,6 +18,10 @@ public class Stage1aView : MonoBehaviour
         this.id = nome[nome.Length - 1];
         this.objAtual = this.gameObject;
         objAtual.GetComponentInChildren<Image>().color = Color.red;
+
+        if (nome.Contains("Bypass")){
+        objAtual.GetComponentInChildren<Image>().color = Color.green;
+        }
     }
     public string getNome()
     {
