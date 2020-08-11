@@ -9,6 +9,8 @@ public class Disjuntor
     private bool isDoubleKey;
     private string keyCode1;
     private string keyCode2;
+    private bool hasBypass;
+    private string bypassCode;
 
     public Disjuntor(bool status, string codigo, string keyCode1)
     {
@@ -17,6 +19,7 @@ public class Disjuntor
         this.codigo = codigo;
         this.isDoubleKey = false;
         this.keyCode1 = keyCode1;
+        this.hasBypass = false;
     }
     public Disjuntor(bool status, string codigo, string keyCode1,string keyCode2)
     {
@@ -26,6 +29,18 @@ public class Disjuntor
         this.isDoubleKey = true;
         this.keyCode1 = keyCode1;
         this.keyCode2 = keyCode2;
+        this.hasBypass = false;
+    }
+    public Disjuntor(bool status, string codigo, string keyCode1, string keyCode2, string bypassCode)
+    {
+        this.type = "Disjuntor";
+        this.status = status;
+        this.codigo = codigo;
+        this.isDoubleKey = true;
+        this.keyCode1 = keyCode1;
+        this.keyCode2 = keyCode2;
+        this.hasBypass = true;
+        this.bypassCode = bypassCode;
     }
     public void setStatus(bool value)
     {
@@ -56,5 +71,10 @@ public class Disjuntor
     {
         return this.type + this.codigo;
     }
-
+    public bool getIsHasBypass() => this.hasBypass;
+    public void setBypassCode(string code)
+    {
+        this.bypassCode = code;
+    }
+    public string getBypassCode() => this.bypassCode;
 }
