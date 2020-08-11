@@ -46,10 +46,10 @@ public class Stage1Model : IfindInterface
         this.disjuntor03 = new Disjuntor(false, "3", "3", "4");
         this.disjuntor04 = new Disjuntor(false, "4", "5", "6");
 
-        this.bypass01 = new Bypass(false, "1", "1");
-        this.bypass02 = new Bypass(false, "2", "2");
-        this.bypass03 = new Bypass(false, "3", "3");
-        this.bypass04 = new Bypass(false, "4", "4");
+        this.bypass01 = new Bypass(true, "1", "1");
+        this.bypass02 = new Bypass(true, "2", "2");
+        this.bypass03 = new Bypass(true, "3", "3");
+        this.bypass04 = new Bypass(true, "4", "4");
 
         this.listOfChaves = createListOfChaves();
         this.listOfDisjuntores = createListOfDisjuntores();
