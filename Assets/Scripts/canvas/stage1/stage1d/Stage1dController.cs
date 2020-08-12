@@ -60,6 +60,8 @@ public class Stage1dController : MonoBehaviour
                 elementosManobra.chave04.getStatus() &&
                 elementosManobra.chave05.getStatus() &&
                 elementosManobra.chave06.getStatus() &&
+                elementosManobra.chave07.getStatus() &&
+                elementosManobra.chave08.getStatus() &&
                 elementosManobra.disjuntor01.getStatus() &&
                 elementosManobra.disjuntor03.getStatus() &&
                 elementosManobra.disjuntor04.getStatus()
@@ -74,6 +76,8 @@ public class Stage1dController : MonoBehaviour
                 !elementosManobra.chave04.getStatus() &&
                 !elementosManobra.chave05.getStatus() &&
                 !elementosManobra.chave06.getStatus() &&
+                !elementosManobra.chave07.getStatus() &&
+                !elementosManobra.chave08.getStatus() &&
                 !elementosManobra.disjuntor01.getStatus() &&
                 !elementosManobra.disjuntor03.getStatus() &&
                 !elementosManobra.disjuntor04.getStatus()
@@ -85,8 +89,22 @@ public class Stage1dController : MonoBehaviour
     {
         string nome = botao.getNome();
         bool result = false;
-        int indexOfElement = nome.Contains("Disjuntor") ? elementosManobra.findDisjuntorIndexByName(nome) : elementosManobra.findChaveIndexByName(nome);
+        int indexOfElement = -1;
+        if (nome.Contains("Disjuntor"))
+        {
+            indexOfElement = elementosManobra.findDisjuntorIndexByName(nome);
+        }
+        else if (nome.Contains("Chave"))
+        {
+            indexOfElement = elementosManobra.findChaveIndexByName(nome);
+        }
+        else //bypass
+        {
+            indexOfElement = elementosManobra.findBypassIndexByName(nome);
+        }
+
         if (indexOfElement < 0) { print("Algum erro no codigo~, não ta conseguindo achar o elemento atual, verifique as suas chamadas."); }
+
         if ((nome.Contains("Disjuntor")) && (verificarDisjuntor(indexOfElement)))
         {
             elementosManobra.listOfDisjuntores[indexOfElement].setStatus(!elementosManobra.listOfDisjuntores[indexOfElement].getStatus());
@@ -97,6 +115,23 @@ public class Stage1dController : MonoBehaviour
             elementosManobra.listOfChaves[indexOfElement].setStatus(!elementosManobra.listOfChaves[indexOfElement].getStatus());
             result = true;
         }
+        if (nome.Contains("Bypass"))
+        {
+            result = true;
+
+            int indexDisjuntor = elementosManobra.findDisjuntorIndexByName("Disjuntor" + elementosManobra.listOfBypass[indexOfElement].getDisjuntorCode());
+            bool statusDisjuntor = elementosManobra.listOfDisjuntores[indexDisjuntor].getStatus();
+            bool statusBypass = elementosManobra.listOfBypass[indexOfElement].getStatus();
+
+            elementosManobra.listOfBypass[indexOfElement].setStatus(!elementosManobra.listOfBypass[indexOfElement].getStatus());
+            if (!statusBypass && statusDisjuntor)
+            {
+                Debug.Log("Feche o disjuntor e suas chaves");
+                elementosManobra.listOfBypass[indexOfElement].setStatus(false);
+                result = false;
+            }
+        }
+
         return result;
     }
     bool verificaTransformadorOff()
@@ -104,19 +139,31 @@ public class Stage1dController : MonoBehaviour
         return (elementosManobra.disjuntor01.getStatus() &&
                 elementosManobra.disjuntor02.getStatus() &&
                 elementosManobra.chave01.getStatus() &&
-                elementosManobra.chave02.getStatus());
+                elementosManobra.chave02.getStatus() &&
+                elementosManobra.chave07.getStatus() &&
+                elementosManobra.chave08.getStatus());
     }
     bool verificaTransformadorOn()
     {
         return (!elementosManobra.disjuntor01.getStatus() &&
                 !elementosManobra.disjuntor02.getStatus() &&
                 !elementosManobra.chave01.getStatus() &&
-                !elementosManobra.chave02.getStatus());
+                !elementosManobra.chave02.getStatus() &&
+                !elementosManobra.chave07.getStatus() &&
+                !elementosManobra.chave08.getStatus());
     }
 
     static bool verificarDisjuntor(int indexDisjuntor)
     {
         bool disjuntorStatus = elementosManobra.listOfDisjuntores[indexDisjuntor].getStatus();
+        bool hasBypass = elementosManobra.listOfDisjuntores[indexDisjuntor].getIsHasBypass();
+        bool bypassStatus = false;
+        if (hasBypass)
+        {
+            string nameBypass = "Bypass" + elementosManobra.listOfDisjuntores[indexDisjuntor].getBypassCode();
+            int indexBypass = elementosManobra.findBypassIndexByName(nameBypass);
+            bypassStatus = elementosManobra.listOfBypass[indexBypass].getStatus();
+        }
 
         string nameKey1 = "Chave" + elementosManobra.listOfDisjuntores[indexDisjuntor].getKeycode1();
         int indexChave1 = elementosManobra.findChaveIndexByName(nameKey1);
@@ -139,10 +186,10 @@ public class Stage1dController : MonoBehaviour
             }
             else
             {
-                Stage1dController.decrementScore(50);
+                Stage1aController.decrementScore(50);
                 Debug.Log("Desligue as Chaves!");
             }
-        }
+        } // So tem uma chave
         else
         {
             if ((!disjuntorStatus) || //se disjuntor estiver desligado
@@ -152,8 +199,18 @@ public class Stage1dController : MonoBehaviour
             }
             else
             {
-                Stage1dController.decrementScore(50);
+                Stage1aController.decrementScore(50);
                 Debug.Log("Desligue a Chave!");
+            }
+        }
+
+        if (hasBypass)
+        {
+            if (bypassStatus && !disjuntorStatus)
+            {
+                Stage1aController.decrementScore(50);
+                Debug.Log("Feche o Bypass !");
+                result = false;
             }
         }
 
