@@ -1,11 +1,15 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using UnityEngine.Assertions.Must;
 using UnityEngine.UI;
 
-public class Stage1aView : MonoBehaviour
+public class Stage1dView : MonoBehaviour
 {
+    public Sprite[] sprites;
     private string nome;
     private char id;
     private GameObject objAtual;
+    private Boolean connected;
 
     void Start()
     {
@@ -17,10 +21,11 @@ public class Stage1aView : MonoBehaviour
         this.nome = this.gameObject.name;
         this.id = nome[nome.Length - 1];
         this.objAtual = this.gameObject;
-        objAtual.GetComponentInChildren<Image>().color = Color.red;
-
-        if (nome.Contains("Bypass")){
-        objAtual.GetComponentInChildren<Image>().color = Color.green;
+        this.connected = true;
+        if (nome.Contains("Bypass"))
+        {
+            objAtual.GetComponentInChildren<Image>().color = Color.green;
+            this.connected = false;
         }
     }
     public string getNome()
@@ -33,10 +38,25 @@ public class Stage1aView : MonoBehaviour
 
         if (Stage1aController.mudarStatus(this))
         {
-            if (objAtual.GetComponentInChildren<Image>().color == Color.green)
-                objAtual.GetComponentInChildren<Image>().color = Color.red;
+            if (nome.Contains("Chave"))
+            {
+                Debug.Log("PRESSED");
+                if (this.connected)
+                {
+                    objAtual.GetComponentInChildren<Image>().sprite = sprites[1];
+                }
+                else
+                {
+                    objAtual.GetComponentInChildren<Image>().sprite = sprites[0];
+                }
+            }
             else
-                objAtual.GetComponentInChildren<Image>().color = Color.green;
+            {
+                if (objAtual.GetComponentInChildren<Image>().color == Color.green)
+                    objAtual.GetComponentInChildren<Image>().color = Color.red;
+                else
+                    objAtual.GetComponentInChildren<Image>().color = Color.green;
+            }
         }
     }
 }
