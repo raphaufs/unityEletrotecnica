@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Assertions.Must;
 using UnityEngine.UI;
 
-public class Stage1dView : MonoBehaviour
+public class Stage1bView : MonoBehaviour
 {
     public Sprite[] sprites;
     private string nome;
