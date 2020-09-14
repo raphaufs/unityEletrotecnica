@@ -57,6 +57,7 @@ public class Stage1aView : MonoBehaviour
                 else
                     objAtual.GetComponentInChildren<Image>().color = Color.green;
             }
+            this.connected = !this.connected;
         }
     }
 }
