@@ -974,8 +974,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: ebb5c7585e8760f47aa0f76b53390d99, type: 3}
+  - {fileID: 21300000, guid: 31beed333b051a940bfaff30c2c7d0f7, type: 3}
 --- !u!114 &247583373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1048,15 +1048,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
+  m_Sprite: {fileID: 21300000, guid: 31beed333b051a940bfaff30c2c7d0f7, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
-  m_UseSpriteMesh: 0
+  m_UseSpriteMesh: 1
   m_PixelsPerUnitMultiplier: 1
 --- !u!222 &247583375
 CanvasRenderer:
@@ -2646,7 +2646,7 @@ RectTransform:
   m_GameObject: {fileID: 599053803}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.6, y: 1.6, z: 1.6}
   m_Children: []
   m_Father: {fileID: 1177832677}
   m_RootOrder: 4
@@ -2668,7 +2668,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dcaf5be325b1bb49a9bc9f8a9d51d26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprites: []
+  sprites:
+  - {fileID: 21300000, guid: ebb5c7585e8760f47aa0f76b53390d99, type: 3}
+  - {fileID: 21300000, guid: 31beed333b051a940bfaff30c2c7d0f7, type: 3}
 --- !u!114 &599053806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2741,15 +2743,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
+  m_Sprite: {fileID: 21300000, guid: 31beed333b051a940bfaff30c2c7d0f7, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
-  m_UseSpriteMesh: 0
+  m_UseSpriteMesh: 1
   m_PixelsPerUnitMultiplier: 1
 --- !u!222 &599053808
 CanvasRenderer:
@@ -2861,7 +2863,7 @@ RectTransform:
   m_GameObject: {fileID: 722804171}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.6, y: 1.6, z: 1.6}
   m_Children: []
   m_Father: {fileID: 1177832677}
   m_RootOrder: 0
@@ -2958,15 +2960,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ebb5c7585e8760f47aa0f76b53390d99, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 31beed333b051a940bfaff30c2c7d0f7, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
-  m_UseSpriteMesh: 0
+  m_UseSpriteMesh: 1
   m_PixelsPerUnitMultiplier: 1
 --- !u!222 &722804176
 CanvasRenderer:
@@ -4433,8 +4435,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: ebb5c7585e8760f47aa0f76b53390d99, type: 3}
+  - {fileID: 21300000, guid: 31beed333b051a940bfaff30c2c7d0f7, type: 3}
 --- !u!114 &1271307568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4507,15 +4509,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
+  m_Sprite: {fileID: 21300000, guid: 31beed333b051a940bfaff30c2c7d0f7, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
-  m_UseSpriteMesh: 0
+  m_UseSpriteMesh: 1
   m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1271307570
 CanvasRenderer:
