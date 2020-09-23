@@ -10,6 +10,7 @@ public class Stage1aView : MonoBehaviour
     private char id;
     private GameObject objAtual;
     private Boolean connected;
+    public GameObject[] connectionsBypass;
 
     void Start()
     {
@@ -41,12 +42,27 @@ public class Stage1aView : MonoBehaviour
             if (this.connected)
             {
                 objAtual.GetComponentInChildren<Image>().sprite = sprites[1];
+                if (nome.Contains("Bypass"))
+                {
+                    foreach(GameObject obj in this.connectionsBypass)
+                    {
+                        obj.GetComponentInChildren<Image>().sprite = sprites[3];
+                    }
+                }
             }
             else
             {
                 objAtual.GetComponentInChildren<Image>().sprite = sprites[0];
+                if (nome.Contains("Bypass"))
+                {
+                    foreach (GameObject obj in this.connectionsBypass)
+                    {
+                        obj.GetComponentInChildren<Image>().sprite = sprites[2];
+                    }
+                }
             }
             this.connected = !this.connected;
+
         }
     }
 }
