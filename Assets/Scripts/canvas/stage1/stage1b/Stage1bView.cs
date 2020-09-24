@@ -10,6 +10,7 @@ public class Stage1bView : MonoBehaviour
     private char id;
     private GameObject objAtual;
     private Boolean connected;
+    public GameObject[] connectionsBypass;
 
     void Start()
     {
@@ -24,7 +25,6 @@ public class Stage1bView : MonoBehaviour
         this.connected = true;
         if (nome.Contains("Bypass"))
         {
-            objAtual.GetComponentInChildren<Image>().color = Color.green;
             this.connected = false;
         }
     }
@@ -38,26 +38,31 @@ public class Stage1bView : MonoBehaviour
 
         if (Stage1bController.mudarStatus(this))
         {
-            if (nome.Contains("Chave"))
+            Debug.Log("PRESSED");
+            if (this.connected)
             {
-                Debug.Log("PRESSED");
-                if (this.connected)
+                objAtual.GetComponentInChildren<Image>().sprite = sprites[1];
+                if (nome.Contains("Bypass"))
                 {
-                    objAtual.GetComponentInChildren<Image>().sprite = sprites[1];
-                }
-                else
-                {
-                    objAtual.GetComponentInChildren<Image>().sprite = sprites[0];
+                    foreach (GameObject obj in this.connectionsBypass)
+                    {
+                        obj.GetComponentInChildren<Image>().sprite = sprites[3];
+                    }
                 }
             }
             else
             {
-                if (objAtual.GetComponentInChildren<Image>().color == Color.green)
-                    objAtual.GetComponentInChildren<Image>().color = Color.red;
-                else
-                    objAtual.GetComponentInChildren<Image>().color = Color.green;
+                objAtual.GetComponentInChildren<Image>().sprite = sprites[0];
+                if (nome.Contains("Bypass"))
+                {
+                    foreach (GameObject obj in this.connectionsBypass)
+                    {
+                        obj.GetComponentInChildren<Image>().sprite = sprites[2];
+                    }
+                }
             }
             this.connected = !this.connected;
+
         }
     }
 }
