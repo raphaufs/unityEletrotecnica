@@ -953,7 +953,6 @@ GameObject:
   - component: {fileID: 247583375}
   - component: {fileID: 247583374}
   - component: {fileID: 247583373}
-  - component: {fileID: 247583372}
   - component: {fileID: 247583376}
   m_Layer: 5
   m_Name: Bypass3
@@ -981,26 +980,6 @@ RectTransform:
   m_AnchoredPosition: {x: -4.2564545, y: -9.61}
   m_SizeDelta: {x: 45, y: 40.7}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &247583372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 247583370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dcaf5be325b1bb49a9bc9f8a9d51d26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprites:
-  - {fileID: 21300000, guid: 9508c953c3962704fac2e59556af1abe, type: 3}
-  - {fileID: 21300000, guid: 9e52bd0d5b539744a92c3945ca5f7f54, type: 3}
-  - {fileID: 21300000, guid: 8287ba1e11bff6640bb1aabeee3de6a3, type: 3}
-  - {fileID: 21300000, guid: b1d82ca0ac6905c43b06779a8c3ade3a, type: 3}
-  connectionsBypass:
-  - {fileID: 119177518}
-  - {fileID: 749515127}
 --- !u!114 &247583373
 MonoBehaviour:
   m_ObjectHideFlags: 0
