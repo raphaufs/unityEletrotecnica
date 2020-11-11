@@ -42,9 +42,9 @@ public class Stage1Model : IfindInterface
         this.chave08 = new Chave(false, "8", "2");
 
         this.disjuntor01 = new Disjuntor(false, "1", "1","7","1");
-        this.disjuntor02 = new Disjuntor(false, "2", "2","8");
-        this.disjuntor03 = new Disjuntor(false, "3", "3", "4");
-        this.disjuntor04 = new Disjuntor(false, "4", "5", "6");
+        this.disjuntor02 = new Disjuntor(false, "2", "2","8","2");
+        this.disjuntor03 = new Disjuntor(false, "3", "3", "4","3");
+        this.disjuntor04 = new Disjuntor(false, "4", "5", "6","4");
 
         this.bypass01 = new Bypass(true, "1", "1");
         this.bypass02 = new Bypass(true, "2", "2");
