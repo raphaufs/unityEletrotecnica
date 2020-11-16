@@ -274,7 +274,7 @@ public class Stage1aController : MonoBehaviour
         }
         else
         {
-            Stage1aController.decrementScore(50);
+            Stage1aController.decrementScore(5);
             Debug.Log("Desligue o Disjutor!");
         }
         return result;
