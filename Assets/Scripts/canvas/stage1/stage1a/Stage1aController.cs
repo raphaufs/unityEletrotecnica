@@ -29,9 +29,6 @@ public class Stage1aController : MonoBehaviour
 }
     public static void decrementScore(int value)
     {
-        Debug.Log("VALOR"+value);
-        Debug.Log("score"+scoreGame);
-        Debug.Log("after"+(scoreGame - 5));
         scoreGame -= value;
     }
     public static void incrementScore(int value)
@@ -77,12 +74,20 @@ public class Stage1aController : MonoBehaviour
                 foreach (Chave c in chavesList)
                 {
                     result = (chave.getCodigo() == c.getCodigo()) ? true : false;
+                    if (result)
+                    {
+                        break;
+                    }
                 }
             }else if(disjuntor != null)
             {
                 foreach (Disjuntor d in disjuntoresList)
                 {
                     result = (disjuntor.getCodigo() == d.getCodigo()) ? true : false;
+                    if (result)
+                    {
+                        break;
+                    }
                 }
             }
             return result;
@@ -246,22 +251,27 @@ public class Stage1aController : MonoBehaviour
 
         if (Stage1aController.isElementOfGoal(disjuntor: disjuntor))
         { // verifica o elemento é parte do objetivo para poder ter pontuação
-            Debug.Log("este elemento pertence ao GOAL 2");
             if (result)
             {
                 Stage1aController.incrementScore(10);
             }
             else
             {
-                Debug.Log("DISJ FALSO");
                 Stage1aController.decrementScore(5);
             }
+        }
+        else
+        {
+            if(!result)
+                Stage1aController.decrementScore(5);
         }
         return result;
     }
 
     static bool verificarChave(int indexChave)
     {
+        Chave chave = elementosManobra.listOfChaves[indexChave];
+        Debug.Log(chave.toString());
         string nameDisjuntor = "Disjuntor" + elementosManobra.listOfChaves[indexChave].getDisjuntorCode();
         int indexDisjuntor = elementosManobra.findDisjuntorIndexByName(nameDisjuntor);
         bool disjuntorStatus = elementosManobra.listOfDisjuntores[indexDisjuntor].getStatus();
@@ -269,13 +279,20 @@ public class Stage1aController : MonoBehaviour
         bool result = false;
         if (disjuntorStatus)
         {//se o disjuntor estiver desligado
-            Stage1aController.incrementScore(10);
             result = true;
         }
         else
         {
             Stage1aController.decrementScore(5);
             Debug.Log("Desligue o Disjutor!");
+        }
+
+        if (Stage1aController.isElementOfGoal(chave: chave))
+        { // verifica o elemento é parte do objetivo para poder ter pontuação
+            if (result)
+            {
+                Stage1aController.incrementScore(10);
+            }
         }
         return result;
     }
@@ -302,7 +319,7 @@ public class Stage1aController : MonoBehaviour
         {
             this.transformador.GetComponentInChildren<Image>().color = Color.red;
         }
-
+        // TODO: criar uma verficação de limite de pontuação por etapa (para quer o usuario n fique farmando pontos em determinados elementos )
         Debug.Log("Objetivos: " + this.maxOjetivos);
         if (this.maxOjetivos == 0)
         {
