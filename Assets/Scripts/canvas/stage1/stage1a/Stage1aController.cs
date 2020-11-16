@@ -29,6 +29,9 @@ public class Stage1aController : MonoBehaviour
 }
     public static void decrementScore(int value)
     {
+        Debug.Log("VALOR"+value);
+        Debug.Log("score"+scoreGame);
+        Debug.Log("after"+(scoreGame - 5));
         scoreGame -= value;
     }
     public static void incrementScore(int value)
@@ -213,15 +216,9 @@ public class Stage1aController : MonoBehaviour
                 (disjuntorStatus && !chave1Status && !chave2Status))
             {//se as chaves estiverem desligadas e o disjuntor estiver ligado
                 result = true;
-                if (Stage1aController.isElementOfGoal(disjuntor: disjuntor))
-                { // verifica o elemento é parte do objetivo para poder ter pontuação
-                    Debug.Log(disjuntor.toString());
-                    Stage1aController.incrementScore(10);
-                }
             }
             else
             {
-                Stage1aController.decrementScore(5);
                 Debug.Log("Desligue as Chaves!");
             }
         } // So tem uma chave
@@ -231,15 +228,9 @@ public class Stage1aController : MonoBehaviour
                   (disjuntorStatus && !chave1Status))
             {//se a chave estiver desligada e o disjuntor estiver ligado
                 result = true;
-                if (Stage1aController.isElementOfGoal(disjuntor: disjuntor))
-                { // verifica o elemento é parte do objetivo para poder ter pontuação
-                    Debug.Log("este elemento pertence ao GOAL 2");
-                    Stage1aController.incrementScore(10);
-                }
             }
             else
             {
-                Stage1aController.decrementScore(5);
                 Debug.Log("Desligue a Chave!");
             }
         }
@@ -248,16 +239,24 @@ public class Stage1aController : MonoBehaviour
         {
             if (bypassStatus && !disjuntorStatus)
             {
-                Stage1aController.decrementScore(5);
                 Debug.Log("Feche o Bypass !");
                 result = false;
             }
-            else
-            {
-                //Stage1aController.incrementScore(10);
-            }
         }
 
+        if (Stage1aController.isElementOfGoal(disjuntor: disjuntor))
+        { // verifica o elemento é parte do objetivo para poder ter pontuação
+            Debug.Log("este elemento pertence ao GOAL 2");
+            if (result)
+            {
+                Stage1aController.incrementScore(10);
+            }
+            else
+            {
+                Debug.Log("DISJ FALSO");
+                Stage1aController.decrementScore(5);
+            }
+        }
         return result;
     }
 
