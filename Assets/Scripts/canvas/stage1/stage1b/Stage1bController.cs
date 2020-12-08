@@ -13,14 +13,14 @@ public class Stage1bController : MonoBehaviour
     private GameObject txtStep;
     private int maxOjetivos; //2 state nessa fase , por enquanto so pensei nisso para simular o estado do objetivo , tipo como se fosse etapas 1/3 concluido ...
                              // soq aqui no caso e pensei em fazer o inverso , eu inicializo um valor , e vou reduzindo ate chegar em zero , quando chega em zero é pq todos objetivos foram concluido
-    private static int scoreGame = 1000;
+    private static int scoreGame = 0;
     private float EndGameCooldown = 3.0f;
     public void setTextScore()
     {
         GameObject objScoreText = GameObject.Find("ScoreGame");
         TextMeshProUGUI scoreText = objScoreText.GetComponent<TextMeshProUGUI>();
         scoreText.SetText("Pontuação:" + scoreGame);
-        if (scoreGame <= 500)
+        if (scoreGame <= 60)
         {
             scoreText.color = new Color32(255, 0, 0, 255);
         }
@@ -52,6 +52,44 @@ public class Stage1bController : MonoBehaviour
         this.txtStep = GameObject.Find("txtStep");
         this.txtStep.SetActive(false);
         this.maxOjetivos = 2;
+    }
+
+    private static bool isElementOfGoal(Chave chave = null, Disjuntor disjuntor = null)
+    {
+        if (chave == null && disjuntor == null)
+        {
+            return false;
+        }
+        else
+        {
+            Chave[] chavesList = Stage1bController.returnChavesObjective();
+            Disjuntor[] disjuntoresList = Stage1bController.returnDisjuntoresObjective();
+
+            bool result = true;
+            if (chave != null)
+            {
+                foreach (Chave c in chavesList)
+                {
+                    result = (chave.getCodigo() == c.getCodigo()) ? true : false;
+                    if (result)
+                    {
+                        break;
+                    }
+                }
+            }
+            else if (disjuntor != null)
+            {
+                foreach (Disjuntor d in disjuntoresList)
+                {
+                    result = (disjuntor.getCodigo() == d.getCodigo()) ? true : false;
+                    if (result)
+                    {
+                        break;
+                    }
+                }
+            }
+            return result;
+        }
     }
 
     private bool manobraDesenergizar(Chave[] chaves, Disjuntor[] disjuntores)
@@ -153,7 +191,8 @@ public class Stage1bController : MonoBehaviour
 
     static bool verificarDisjuntor(int indexDisjuntor)
     {
-        bool disjuntorStatus = elementosManobra.listOfDisjuntores[indexDisjuntor].getStatus();
+        Disjuntor disjuntor = elementosManobra.listOfDisjuntores[indexDisjuntor];
+        bool disjuntorStatus = disjuntor.getStatus();
         bool hasBypass = elementosManobra.listOfDisjuntores[indexDisjuntor].getIsHasBypass();
         bool bypassStatus = false;
         if (hasBypass)
@@ -184,7 +223,6 @@ public class Stage1bController : MonoBehaviour
             }
             else
             {
-                Stage1aController.decrementScore(50);
                 Debug.Log("Desligue as Chaves!");
             }
         } // So tem uma chave
@@ -197,7 +235,6 @@ public class Stage1bController : MonoBehaviour
             }
             else
             {
-                Stage1aController.decrementScore(50);
                 Debug.Log("Desligue a Chave!");
             }
         }
@@ -206,17 +243,34 @@ public class Stage1bController : MonoBehaviour
         {
             if (bypassStatus && !disjuntorStatus)
             {
-                Stage1aController.decrementScore(50);
                 Debug.Log("Feche o Bypass !");
                 result = false;
             }
         }
 
+        if (Stage1bController.isElementOfGoal(disjuntor: disjuntor))
+        { // verifica o elemento é parte do objetivo para poder ter pontuação
+            if (result)
+            {
+                Stage1bController.incrementScore(10);
+            }
+            else
+            {
+                Stage1bController.decrementScore(5);
+            }
+        }
+        else
+        {
+            if (!result)
+                Stage1bController.decrementScore(5);
+        }
         return result;
     }
 
     static bool verificarChave(int indexChave)
     {
+        Chave chave = elementosManobra.listOfChaves[indexChave];
+        Debug.Log(chave.toString());
         string nameDisjuntor = "Disjuntor" + elementosManobra.listOfChaves[indexChave].getDisjuntorCode();
         int indexDisjuntor = elementosManobra.findDisjuntorIndexByName(nameDisjuntor);
         bool disjuntorStatus = elementosManobra.listOfDisjuntores[indexDisjuntor].getStatus();
@@ -228,17 +282,25 @@ public class Stage1bController : MonoBehaviour
         }
         else
         {
-            Stage1bController.decrementScore(50);
+            Stage1bController.decrementScore(5);
             Debug.Log("Desligue o Disjutor!");
+        }
+
+        if (Stage1bController.isElementOfGoal(chave: chave))
+        { // verifica o elemento é parte do objetivo para poder ter pontuação
+            if (result)
+            {
+                Stage1bController.incrementScore(10);
+            }
         }
         return result;
     }
 
-    Chave[] returnChavesObjective()
+    private static Chave[] returnChavesObjective()
     {
         return new Chave[] { elementosManobra.chave03, elementosManobra.chave04 };
     }
-    Disjuntor[] returnDisjuntoresObjective()
+    private static Disjuntor[] returnDisjuntoresObjective()
     {
         return new Disjuntor[] { elementosManobra.disjuntor03 };
     }
