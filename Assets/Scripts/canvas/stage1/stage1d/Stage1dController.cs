@@ -30,6 +30,10 @@ public class Stage1dController : MonoBehaviour
     {
         scoreGame -= value;
     }
+    public static void incrementScore(int value)
+    {
+        scoreGame += value;
+    }
     void Start()
     {
         iniciar();
