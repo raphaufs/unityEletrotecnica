@@ -31,6 +31,10 @@ public class Stage1cController : MonoBehaviour
     {
         scoreGame -= value;
     }
+    public static void incrementScore(int value)
+    {
+        scoreGame += value;
+    }
     void Start()
     {
         iniciar();
